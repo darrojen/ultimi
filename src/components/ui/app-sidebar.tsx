@@ -206,7 +206,7 @@ export default function AppSidebar() {
 
   const filteredNavItems = navItems.filter(item => {
     if (profile?.user_type === 'sponsor') {
-      return !['Quiz', 'Progress', 'Ultimi AI'].includes(item.title);
+      return !['Quiz', 'Progress', 'Ultimi Ai', 'Flashcards'].includes(item.title);
     }
     return true;
   });
@@ -244,7 +244,7 @@ export default function AppSidebar() {
           <img
             src="/logo.png"
             alt="Ultimi Logo"
-            className="h-8 w-10 min-h-[2.4rem]  relative left-[0px] min-w-[2.5rem] flex-shrink-0 object-contain"
+            className="h-8 w-10 animate-pulse-slow min-h-[2.4rem]  relative left-[0px] min-w-[2.5rem] flex-shrink-0 object-contain "
           />
          <span
             className={`
@@ -273,6 +273,8 @@ export default function AppSidebar() {
                           ? 'bg-gray-100 dark:bg-gray-800 font-semibold border-l-2 border-primary'
                           : 'hover:bg-gray-100 dark:hover:bg-gray-800'
                       }`}
+                                              title={item.title}
+
                     onClick={
                       item.title === 'Notifications'
                         ? handleNotificationsClick
@@ -382,6 +384,11 @@ export default function AppSidebar() {
       </SidebarFooter>
     </Sidebar>
       <MobileNavigation />
+      <style>
+        {` .animate-pulse-slow {
+          animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }`}
+      </style>
     </>
   );
 }
