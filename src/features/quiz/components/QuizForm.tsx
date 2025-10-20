@@ -731,8 +731,7 @@ export default function QuizForm({ route, examType, onBack }: QuizFormProps) {
     if (selectedSubjects.length > 0 && selectedSubjects.some(sub => !fetchedQuestions[sub])) {
       loadAllQuestions();
     }
-        // eslint-disable-next-line react-hooks/exhaustive-deps 
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
   }, [selectedSubjects, examType, fetchedQuestions]);
 
   useEffect(() => {

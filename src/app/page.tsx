@@ -396,7 +396,7 @@ const SocialIcons = () => (
 // ====================
 export default function HomePage() {
   return (
-    <Box className="min-h-screen flex flex-col justify-between bg-gradient-to-b from-background to-muted p-6">
+    <Box className="min-h-screen flex flex-col justify-between bg-gradient-to-b from-background to-muted px-6">
       {/* Theme toggle */}
       <div className="absolute top-4 right-6">
         <ModeToggle />
@@ -474,47 +474,50 @@ export default function HomePage() {
         ))}
       </motion.div>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="mt-20"
-      >
-        <footer className="py-8 px-6 bg-background text-foreground rounded-t-2xl border-t border-border transition-colors">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-bold mb-2">Ultimi</h3>
-              <p className="text-muted-foreground text-sm">
-                Your ultimate companion for exam preparation.
-              </p>
-            </div>
+       {/* Footer */}
 
-            <div>
-              <h4 className="font-semibold mb-2">Quick Links</h4>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                <li><Link href="#" className="hover:text-primary">Start</Link></li>
-                <li><Link href="#" className="hover:text-primary">How It Works</Link></li>
-                <li><Link href="#" className="hover:text-primary">Pricing</Link></li>
-                <li><Link href="#" className="hover:text-primary">FAQ</Link></li>
-              </ul>
-            </div>
+          <motion.footer
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+          className="relative mt-20 bg-background text-foreground border-t border-border rounded-t-2xl shadow-inner"
+        >
+  <div className="max-w-6xl mx-auto py-10 px-6 grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+    {/* Brand */}
+    <div>
+      <h3 className="text-xl font-bold mb-2">Ultimi</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        Your ultimate companion for exam preparation — study smart, not hard.
+      </p>
+    </div>
 
-            <div>
-              <h4 className="font-semibold mb-2">Affiliation</h4>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                <li><Link href="#" className="hover:text-primary">Terms & Conditions</Link></li>
-                <li><Link href="#" className="hover:text-primary">Privacy Policy</Link></li>
-              </ul>
-              <SocialIcons />
-            </div>
-          </div>
+    {/* Quick Links */}
+    <div>
+      <h4 className="text-base font-semibold mb-3">Quick Links</h4>
+      <ul className="space-y-2 text-sm text-muted-foreground">
+        <li><Link href="#" className="transition-colors hover:text-primary">Start</Link></li>
+        <li><Link href="#" className="transition-colors hover:text-primary">How It Works</Link></li>
+        <li><Link href="#" className="transition-colors hover:text-primary">Pricing</Link></li>
+        <li><Link href="#" className="transition-colors hover:text-primary">FAQ</Link></li>
+      </ul>
+    </div>
 
-          <div className="border-t border-border mt-6 pt-4 text-center text-muted-foreground text-xs">
-            © {new Date().getFullYear()} Ultimi. All rights reserved.
-          </div>
-        </footer>
-      </motion.footer>
+    {/* Legal / Social */}
+    <div>
+      <h4 className="text-base font-semibold mb-3">Legal & Social</h4>
+      <ul className="space-y-2 text-sm text-muted-foreground mb-4">
+        <li><Link href="#" className="transition-colors hover:text-primary">Terms & Conditions</Link></li>
+        <li><Link href="#" className="transition-colors hover:text-primary">Privacy Policy</Link></li>
+      </ul>
+      <SocialIcons />
+    </div>
+  </div>
+
+  <div className="border-t border-border text-center text-xs text-muted-foreground py-4">
+    © {new Date().getFullYear()} <span className="font-semibold text-foreground">Ultimi</span>. All rights reserved.
+  </div>
+</motion.footer>
+
     </Box>
   )
 }
